@@ -1,5 +1,6 @@
 import boto3
 from botocore.exceptions import ClientError
+from boto3.dynamodb.conditions import Key
 
 
 class DynamoDBRepository:
@@ -23,13 +24,16 @@ class DynamoDBRepository:
             print(e.response['Error']['Message'])
             return None
 
-    def update_item(self, key, update_expression, expression_values):
+    def update_item(self, key, item, update_at):
         try:
-            self.table.update_item(
-                Key=key,
-                UpdateExpression=update_expression,
-                ExpressionAttributeValues=expression_values
-            )
+            if key is None:
+                raise ValueError("Key cannot be None")
+
+            item['id'] = key
+            item['updated_at'] = update_at
+
+            self.table.put_item(Item=item)
+            print('ok')
             return True
         except ClientError as e:
             print(e.response['Error']['Message'])
@@ -54,6 +58,17 @@ class DynamoDBRepository:
                 items.extend(response.get('Items', []))
 
             return items
+        except ClientError as e:
+            print(e.response['Error']['Message'])
+            return None
+
+    def get_items_by_status(self, status):
+        try:
+            response = self.table.query(
+                IndexName='status-index',
+                KeyConditionExpression=Key('status').eq(status)
+            )
+            return response.get('Items', [])
         except ClientError as e:
             print(e.response['Error']['Message'])
             return None
