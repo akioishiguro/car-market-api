@@ -3,6 +3,7 @@ from waitress import serve
 from flask_restx import Api
 
 from services.resources.cars_api_resources import cars_ns
+from services.resources.buy_a_new_cars_api_resources import buy_a_new_car_ns
 
 app = Flask(__name__)
 
@@ -20,5 +21,6 @@ class ApiService(object):
 
     def run(self):
         self.api.add_namespace(cars_ns)
+        self.api.add_namespace(buy_a_new_car_ns)
         print('Serving on http://localhost:{}/swagger/'.format( self.PORT))
         serve(app, host=self.HOST, port=self.PORT)
