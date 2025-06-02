@@ -5,10 +5,10 @@ from flask import request
 from http import HTTPStatus
 from flask_restx import Namespace, Resource, fields
 
-from services.repository.dynamodb import DynamoDBRepository
-
 from config import Config
 from utils.convert_to_decimal import convert_to_decimal
+from services.bearer_token_validation_admin import auth
+from services.repository.dynamodb import DynamoDBRepository
 
 dynamo_db = DynamoDBRepository(table_name=Config.get('dynamoTableName'), region_name=Config.get('awsRegion'))
 
@@ -40,7 +40,7 @@ def response_model_helper(status_success: bool, response, message):
 
 @cars_ns.route('/create_car')
 class CreateCarResource(Resource):
-    # @auth.login_required
+    @auth.login_required
     @cars_ns.expect(create_car_model)
     @cars_ns.marshal_with(response_model)
     def post(self):
@@ -82,6 +82,7 @@ class CarResource(Resource):
                 message='Carro não encontrado.'
             ), HTTPStatus.NOT_FOUND
 
+    @auth.login_required
     @cars_ns.marshal_with(response_model)
     def delete(self, car_id):
         success = dynamo_db.delete_item({'id': car_id})
@@ -98,6 +99,7 @@ class CarResource(Resource):
                 message='Erro ao deletar o carro.'
             ), HTTPStatus.BAD_REQUEST
 
+    @auth.login_required
     @cars_ns.expect(create_car_model)
     @cars_ns.marshal_with(response_model)
     def put(self, car_id):
@@ -123,7 +125,7 @@ class CarResource(Resource):
 
 
 @cars_ns.route('/get_all_cars')
-class CarsListResource(Resource):
+class CarsListAllResource(Resource):
     @cars_ns.marshal_with(response_model)
     def get(self):
         cars = dynamo_db.get_all_items()
@@ -143,7 +145,7 @@ class CarsListResource(Resource):
 
 
 @cars_ns.route('/get_all_availables_cars')
-class CarsListResource(Resource):
+class CarsListAllAvailablesResource(Resource):
     @cars_ns.marshal_with(response_model)
     def get(self):
         cars = dynamo_db.get_items_by_status('available')
@@ -163,7 +165,7 @@ class CarsListResource(Resource):
 
 
 @cars_ns.route('/get_all_sold_cars')
-class CarsListResource(Resource):
+class CarsListAllSoldResource(Resource):
     @cars_ns.marshal_with(response_model)
     def get(self):
         cars = dynamo_db.get_items_by_status('sold')

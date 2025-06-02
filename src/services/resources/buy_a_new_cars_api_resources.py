@@ -5,7 +5,7 @@ from datetime import datetime
 from flask_restx import Namespace, Resource, fields
 
 from config import Config
-from services.bearer_token_validation_admin import auth, group_required
+from services.bearer_token_validation_client import auth
 from utils.convert_to_decimal import convert_to_decimal
 from services.repository.dynamodb import DynamoDBRepository
 
@@ -14,7 +14,7 @@ dynamo_db = DynamoDBRepository(table_name=Config.get('dynamoTableName'), region_
 
 buy_a_new_car_ns = Namespace(name='buy_a_new_car', description='Gerenciamento de Carros')
 
-create_car_model = buy_a_new_car_ns.model('Cars', {
+create_car_model = buy_a_new_car_ns.model('New Car', {
     'status': fields.String(required=True, enum=['sold'])
 })
 
