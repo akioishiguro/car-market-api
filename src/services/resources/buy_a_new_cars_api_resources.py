@@ -5,8 +5,10 @@ from datetime import datetime
 from flask_restx import Namespace, Resource, fields
 
 from config import Config
+from services.bearer_token_validation_admin import auth, group_required
 from utils.convert_to_decimal import convert_to_decimal
 from services.repository.dynamodb import DynamoDBRepository
+
 
 dynamo_db = DynamoDBRepository(table_name=Config.get('dynamoTableName'), region_name=Config.get('awsRegion'))
 
@@ -33,6 +35,7 @@ def response_model_helper(status_success: bool, response, message):
 
 @buy_a_new_car_ns.route('/<string:car_id>')
 class CarResource(Resource):
+    @auth.login_required
     @buy_a_new_car_ns.expect(create_car_model)
     @buy_a_new_car_ns.marshal_with(response_model)
     def put(self, car_id):
