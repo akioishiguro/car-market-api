@@ -1,0 +1,41 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  lambdaAuth
+
+  Sample SAM Template for lambdaCarApi
+
+Globals:
+  Function:
+    Timeout: 120
+    MemorySize: 512
+Resources:
+  AwsLambdaCarMarketplaceApi:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: lambdaCarApi
+      CodeUri: src/
+      Handler: app.lambda_handler
+      Runtime: python3.12
+      Architectures:
+      - x86_64
+      Events:
+        AwsApiGatewayCarMarketplaceApi:
+          Type: Api
+          Properties:
+            Path: /{proxy+}
+            Method: ANY
+
+  ApplicationResourceGroup:
+    Type: AWS::ResourceGroups::Group
+    Properties:
+      Name:
+        Fn::Sub: ApplicationInsights-SAM-${AWS::StackName}
+      ResourceQuery:
+        Type: CLOUDFORMATION_STACK_1_0
+  ApplicationInsightsMonitoring:
+    Type: AWS::ApplicationInsights::Application
+    Properties:
+      ResourceGroupName:
+        Ref: ApplicationResourceGroup
+      AutoConfigurationEnabled: 'true'
