@@ -15,7 +15,7 @@ Resources:
     Properties:
       FunctionName: lambdaCarApi
       CodeUri: src/
-      Handler: main.lambda_handler
+      Handler: app.lambda_handler
       Runtime: python3.12
       Architectures:
       - x86_64
