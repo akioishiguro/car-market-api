@@ -1,0 +1,247 @@
+{
+	"info": {
+		"_postman_id": "7bf697b3-4f41-4e15-a0c8-6a95302358ee",
+		"name": "Car Market",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cars",
+			"item": [
+				{
+					"name": "create_car",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJraWQiOiJtRkY1Q2tZcGNtOHQ3eHZjVmw0NTF0V1czRWtLXC9KV1B2ZW9ZWXVRbmZYST0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI2NDM4NjQxOC01MDIxLTcwYjMtNjYxYy02ZmE5YjMzYTMyZjciLCJjb2duaXRvOmdyb3VwcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9xQVRsamtmYnoiLCJjbGllbnRfaWQiOiJ1M2NzbXRpbG9tNnI4cjcwdTNtbzE2ZTQzIiwiZXZlbnRfaWQiOiJhMWNhM2E0NS1kMjc0LTRiZTUtOGRkNC01M2QwYjI5YjNhOTUiLCJ0b2tlbl91c2UiOiJhY2Nlc3MiLCJzY29wZSI6ImF3cy5jb2duaXRvLnNpZ25pbi51c2VyLmFkbWluIiwiYXV0aF90aW1lIjoxNzQ5MDg5OTg4LCJleHAiOjE3NDkwOTM1ODgsImlhdCI6MTc0OTA4OTk4OCwianRpIjoiMmM0ZDdjZDAtZjUxNS00Nzk0LTgyOTAtYmI3NjUzMzZhNThhIiwidXNlcm5hbWUiOiIwMjg1Njc0MDU2MSJ9.lx0pNigVjc_e_Li9Kh1ZoEo5980y_846X4H52FVsFl90mbbJeswNx4gPITBJ66g1cmGgn-_uoZTwuNGbPnw8JAyyiBCGpLk7qzOEb9B75-VlQF3eeIEkwXxbb9zR2UEIRH0l5DyNUWNgu8rti1eiqayJb9tEZ3O5WimHObRi-vK7EuRXgiYv_ne0QjENuXSsWOFhyCscOpMc1jk_iIvidd6G7Eqxe3Sb-lp8RPlNXvEaSDRKPATObwfFfa46omqN8Ujhp5q8S_G8mOS1CYIxq0YlxWHnv3d_jncIWAT-KMDUsuM4FsOeUaFD02zunI95Bro1Heu9HtzAZwDeByRM0A",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"brand\": \"Hond\",\n  \"model\": \"Civic\",\n  \"year\": 2025,\n  \"color\": \"red\",\n  \"price\": 300000.14,\n  \"status\": \"available\"\n}"
+						},
+						"url": {
+							"raw": "{{api_car_market_api}}/cars/create_car",
+							"host": [
+								"{{api_car_market_api}}"
+							],
+							"path": [
+								"cars",
+								"create_car"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_all_availables_cars",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{api_car_market_api}}/cars/get_all_availables_cars",
+							"host": [
+								"{{api_car_market_api}}"
+							],
+							"path": [
+								"cars",
+								"get_all_availables_cars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_all_cars",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{api_car_market_api}}/cars/get_all_cars",
+							"host": [
+								"{{api_car_market_api}}"
+							],
+							"path": [
+								"cars",
+								"get_all_cars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_all_sold_cars",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{api_car_market_api}}/cars/get_all_sold_cars",
+							"host": [
+								"{{api_car_market_api}}"
+							],
+							"path": [
+								"cars",
+								"get_all_sold_cars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_car",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJraWQiOiJtRkY1Q2tZcGNtOHQ3eHZjVmw0NTF0V1czRWtLXC9KV1B2ZW9ZWXVRbmZYST0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI2NDM4NjQxOC01MDIxLTcwYjMtNjYxYy02ZmE5YjMzYTMyZjciLCJjb2duaXRvOmdyb3VwcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9xQVRsamtmYnoiLCJjbGllbnRfaWQiOiJ1M2NzbXRpbG9tNnI4cjcwdTNtbzE2ZTQzIiwiZXZlbnRfaWQiOiJhMWNhM2E0NS1kMjc0LTRiZTUtOGRkNC01M2QwYjI5YjNhOTUiLCJ0b2tlbl91c2UiOiJhY2Nlc3MiLCJzY29wZSI6ImF3cy5jb2duaXRvLnNpZ25pbi51c2VyLmFkbWluIiwiYXV0aF90aW1lIjoxNzQ5MDg5OTg4LCJleHAiOjE3NDkwOTM1ODgsImlhdCI6MTc0OTA4OTk4OCwianRpIjoiMmM0ZDdjZDAtZjUxNS00Nzk0LTgyOTAtYmI3NjUzMzZhNThhIiwidXNlcm5hbWUiOiIwMjg1Njc0MDU2MSJ9.lx0pNigVjc_e_Li9Kh1ZoEo5980y_846X4H52FVsFl90mbbJeswNx4gPITBJ66g1cmGgn-_uoZTwuNGbPnw8JAyyiBCGpLk7qzOEb9B75-VlQF3eeIEkwXxbb9zR2UEIRH0l5DyNUWNgu8rti1eiqayJb9tEZ3O5WimHObRi-vK7EuRXgiYv_ne0QjENuXSsWOFhyCscOpMc1jk_iIvidd6G7Eqxe3Sb-lp8RPlNXvEaSDRKPATObwfFfa46omqN8Ujhp5q8S_G8mOS1CYIxq0YlxWHnv3d_jncIWAT-KMDUsuM4FsOeUaFD02zunI95Bro1Heu9HtzAZwDeByRM0A",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"brand\": \"Hond\",\n  \"model\": \"Civic\",\n  \"year\": 2025,\n  \"color\": \"red\",\n  \"price\": 300000.1,\n  \"status\": \"available\"\n}"
+						},
+						"url": {
+							"raw": "{{api_car_market_api}}/cars/0d799df6-9f04-4e93-8fbc-14d155b25a30",
+							"host": [
+								"{{api_car_market_api}}"
+							],
+							"path": [
+								"cars",
+								"0d799df6-9f04-4e93-8fbc-14d155b25a30"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_a_car_by_id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{api_car_market_api}}/cars/0d799df6-9f04-4e93-8fbc-14d155b25a30",
+							"host": [
+								"{{api_car_market_api}}"
+							],
+							"path": [
+								"cars",
+								"0d799df6-9f04-4e93-8fbc-14d155b25a30"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_by_id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJraWQiOiJtRkY1Q2tZcGNtOHQ3eHZjVmw0NTF0V1czRWtLXC9KV1B2ZW9ZWXVRbmZYST0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI2NDM4NjQxOC01MDIxLTcwYjMtNjYxYy02ZmE5YjMzYTMyZjciLCJjb2duaXRvOmdyb3VwcyI6WyJhZG1pbiJdLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9xQVRsamtmYnoiLCJjbGllbnRfaWQiOiJ1M2NzbXRpbG9tNnI4cjcwdTNtbzE2ZTQzIiwiZXZlbnRfaWQiOiJhMWNhM2E0NS1kMjc0LTRiZTUtOGRkNC01M2QwYjI5YjNhOTUiLCJ0b2tlbl91c2UiOiJhY2Nlc3MiLCJzY29wZSI6ImF3cy5jb2duaXRvLnNpZ25pbi51c2VyLmFkbWluIiwiYXV0aF90aW1lIjoxNzQ5MDg5OTg4LCJleHAiOjE3NDkwOTM1ODgsImlhdCI6MTc0OTA4OTk4OCwianRpIjoiMmM0ZDdjZDAtZjUxNS00Nzk0LTgyOTAtYmI3NjUzMzZhNThhIiwidXNlcm5hbWUiOiIwMjg1Njc0MDU2MSJ9.lx0pNigVjc_e_Li9Kh1ZoEo5980y_846X4H52FVsFl90mbbJeswNx4gPITBJ66g1cmGgn-_uoZTwuNGbPnw8JAyyiBCGpLk7qzOEb9B75-VlQF3eeIEkwXxbb9zR2UEIRH0l5DyNUWNgu8rti1eiqayJb9tEZ3O5WimHObRi-vK7EuRXgiYv_ne0QjENuXSsWOFhyCscOpMc1jk_iIvidd6G7Eqxe3Sb-lp8RPlNXvEaSDRKPATObwfFfa46omqN8Ujhp5q8S_G8mOS1CYIxq0YlxWHnv3d_jncIWAT-KMDUsuM4FsOeUaFD02zunI95Bro1Heu9HtzAZwDeByRM0A",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{api_car_market_api}}/cars/0d799df6-9f04-4e93-8fbc-14d155b25a30",
+							"host": [
+								"{{api_car_market_api}}"
+							],
+							"path": [
+								"cars",
+								"0d799df6-9f04-4e93-8fbc-14d155b25a30"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Buy a new car",
+			"item": [
+				{
+					"name": "buy_a_new_car",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJraWQiOiJtRkY1Q2tZcGNtOHQ3eHZjVmw0NTF0V1czRWtLXC9KV1B2ZW9ZWXVRbmZYST0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIwNDU4ZjQ0OC02MGUxLTcwOGItYTYyYy00NzJlYTA0OWMxNTYiLCJjb2duaXRvOmdyb3VwcyI6WyJjbGllbnRzIl0sImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xX3FBVGxqa2ZieiIsImNsaWVudF9pZCI6InUzY3NtdGlsb202cjhyNzB1M21vMTZlNDMiLCJldmVudF9pZCI6ImFlZGU2MmNmLTcwMjMtNGNlZC1iZmQwLTY2ZWFmODFlODlhMCIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE3NDkwOTEyNzIsImV4cCI6MTc0OTA5NDg3MiwiaWF0IjoxNzQ5MDkxMjcyLCJqdGkiOiJiMmE0NGJjZC05OGFkLTRlZTItYTE5ZC0zMDE2NWQ0NDZhNTgiLCJ1c2VybmFtZSI6IjcyNjMzMDc0MzA4In0.ksLWkoDaOuKG9LghfidMKWHjGm3ldrabq9kIUM_utdOyrFu-VkXeTcoe_lxQyFgMY-P5Y6xFhpdYvbJLFILX-RhKR1-NHEhWBBP5DqNPdzyqaDBqRIcGo1PywP4U1PC63JYNXRFhD5gcwmBspgAAQnOugSmqQmKCdQokXDcbQhTvqxEJTX7RtZUa_U1-DroSJ5fiLCWUSY9mlemWDSN8o94FjWppwZNO-leMksC1iYHRGL6xp-FJsrLSkeq3KUtxRWMq_5Z_OHuqKscaPwSuWqXFqhvduZm7Vcgr67k9EK4E1bBv21OSGCJOhsYgu0FhcuGvImLo7I6BCxXVi2m5vQ",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"sold\"\n}"
+						},
+						"url": {
+							"raw": "{{api_car_market_api}}/buy_a_new_car/6e9e595e-36c3-4fdc-b5a8-f753425db605",
+							"host": [
+								"{{api_car_market_api}}"
+							],
+							"path": [
+								"buy_a_new_car",
+								"6e9e595e-36c3-4fdc-b5a8-f753425db605"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
